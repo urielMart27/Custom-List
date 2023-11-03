@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,15 +11,21 @@ namespace CustomList
     {
         //Member Variables (HAS A)
         private T[] items;
-        private int capacity;
+        public int capacity;
         private int count;
+
+      
 
         //Constructor
         public CustomList()
         {
             //capacity = 
+            capacity = 4;
             //count =
+            count = 0;
             //items = 
+            items = new T[capacity];
+            
         }
 
         //Member Methods (CAN DO)
@@ -27,7 +34,33 @@ namespace CustomList
             //'item' parameter should be added to internal 'items' array
             //if items array is at capacity, double capacity and create new array
             //transfer all items to new array
+            
+               if (count == capacity)
+            {
+                capacity *= 2;
+                T[] newItems = new T[capacity];
+                for (int i = 0; i < count; i++)
+                {
+                    newItems[i] = items[i];
+                }
+                items = newItems;
+            }
+            items[count] = item;
+            count++;
+
+            
         }
+        public int Count
+        {
+            get { return count; }
+        }
+
+        public T this[int index]
+        {
+            get { return items[index]; }
+        }
+        
+            
 
         public bool Remove(T item)
         {
