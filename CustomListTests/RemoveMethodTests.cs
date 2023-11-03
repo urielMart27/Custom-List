@@ -51,5 +51,49 @@ namespace CustomListTests
             Assert.AreEqual(1, newCount);
 
         }
+
+        [TestMethod]
+        public void RemoveMethod_ItemNotInList_CountStaysTheSame()
+        {
+            //Arrange 
+            CustomList<string> myList = new CustomList<string>();
+
+            //Act 
+            myList.Add("Item1");
+            myList.Add("Item2");
+
+            bool result = myList.Remove("Item3");
+
+            int newCount = myList.Count;
+
+            //Assert  
+            Assert.IsFalse(result);
+            Assert.AreEqual(2, newCount);
+
+        }
+
+        [TestMethod]
+        public void RemoveMethod_ItemIndex_ItemsShiftBackwards()
+        {
+            //Arrange 
+            CustomList<string> myList = new CustomList<string>();
+
+            //Act 
+            myList.Add("Item1");
+            myList.Add("Item2");
+            myList.Add("Item3");
+
+            int initialCount = myList.Count;
+
+            myList.Remove("Item 1");
+
+            int newCount = myList.Count;
+
+            //Assert  
+            Assert.AreEqual(initialCount - 1, newCount);
+            Assert.AreEqual("Item2", myList[0]);
+            Assert.AreEqual("Item3", myList[1]);
+
+        }
     }
 }
