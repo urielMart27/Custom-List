@@ -49,7 +49,7 @@ namespace CustomListTests
         
 
         [TestMethod]
-        public void AddMethod_ItemCountReaches4_NewCapacityEquals8()
+        public void AddMethod_IncreaseCapacity_NewCapacityEquals8AfterCountis4()
         {
             //Arrange
             CustomList<string> myList = new CustomList<string>();
@@ -69,7 +69,7 @@ namespace CustomListTests
         }
 
         [TestMethod]
-        public void AddMethod_ItemCountReaches4_CapacityIncreasesandItemPersistsInIndex()
+        public void AddMethod_IncreaseCapacity_ItemPersistsInIndex()
         {
             //Arrange
             CustomList<string> myList = new CustomList<string>();
