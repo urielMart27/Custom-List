@@ -95,6 +95,7 @@ namespace CustomList
             if (count == 0)
             {
                 return " ";
+
             }
 
             StringBuilder result = new StringBuilder();
@@ -109,7 +110,8 @@ namespace CustomList
         public static CustomList<T> operator +(CustomList<T> firstList, CustomList<T> secondList)
         {
             //returns a single CustomList<T> that contains all items from firstList and all items from secondList 
-            return null;
+            int totalItems = firstList.items + secondList.items;
+            return new CustomList<T>(totalItems);
         }
 
         public static CustomList<T> operator -(CustomList<T> firstList, CustomList<T> secondList)
