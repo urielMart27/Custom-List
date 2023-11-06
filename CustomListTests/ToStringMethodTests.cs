@@ -11,7 +11,7 @@ namespace CustomListTests
     public class ToStringMethodTests
     {
         [TestMethod]
-        public void TestMethod()
+        public void ToString_ListOfStrings_ReturnExpectedResult()
         {
             //Arrange
             CustomList<string> myList = new CustomList<string>();
@@ -30,7 +30,7 @@ namespace CustomListTests
         }
 
         [TestMethod]
-        public void TestyMethod()
+        public void ToString_ListofInts_ReturnExpectedResult()
         {
             //Arrange
             CustomList<int> myList = new CustomList<int>();
@@ -50,7 +50,7 @@ namespace CustomListTests
 
 
         [TestMethod]
-        public void TestycMethod()
+        public void ToString_EmptyList_ReturnsEmptyString()
         {
             //Arrange
             CustomList<string> myList = new CustomList<string>();

@@ -92,7 +92,18 @@ namespace CustomList
         public override string ToString()
         {
             //returns a single string that contains all items from array
-            return "";
+            if (count == 0)
+            {
+                return " ";
+            }
+
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i < count; i++)
+            {
+                result.Append(items[i]);
+            }
+            return result.ToString();
+                
         }
 
         public static CustomList<T> operator +(CustomList<T> firstList, CustomList<T> secondList)
