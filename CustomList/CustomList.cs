@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -50,15 +51,7 @@ namespace CustomList
 
             
         }
-        public int Count
-        {
-            get { return count; }
-        }
-
-        public T this[int index]
-        {
-            get { return items[index]; }
-        }
+      
         
             
 
@@ -67,8 +60,34 @@ namespace CustomList
             //If 'item' exists in the 'items' array, remove its first instance
             //Any items coming after the removed item should be shifted down so there is no empty index.
             //If 'item' was removed, return true. If no item was removed, return false.
-            return false;
+
+            int index = Array.IndexOf(items, item, 0, count);
+            if (index == -1)
+            {
+                return false;
+            }
+
+            for (int i = index; i < count - 1; i++)
+            {
+                items[i] = items[i + 1];
+            }
+
+            count--;
+            return true;
+            
+
         }
+
+           public int Count
+        {
+            get { return count; }
+        }
+
+        public T this[int index]
+        {
+            get { return items[index]; }
+        }
+      
 
         public override string ToString()
         {

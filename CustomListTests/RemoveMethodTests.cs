@@ -85,7 +85,7 @@ namespace CustomListTests
 
             int initialCount = myList.Count;
 
-            myList.Remove("Item 1");
+            myList.Remove("Item1");
 
             int newCount = myList.Count;
 
@@ -109,7 +109,7 @@ namespace CustomListTests
 
             int initialCount = myList.Count;
 
-            myList.Remove("Item 1");
+            myList.Remove("Item1");
 
             int newCount = myList.Count;
 
