@@ -13,7 +13,7 @@ namespace CustomList
         //Member Variables (HAS A)
         private T[] items;
         public int capacity;
-        private int count;
+        public int count;
 
       
 
