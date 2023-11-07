@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 namespace CustomListTests
 {
     [TestClass]
-    public class OperatorOverloadTests
+    public class PlusOperatorOverloadTests
     {
         [TestMethod]
-        public void TestMethod()
+        public void PlusOperatorOverload_TwoLists_FirstListIslongerisTrue()
         {
             //Arrange
             CustomList<int> firstList = new CustomList<int>();
@@ -34,7 +34,7 @@ namespace CustomListTests
 
         }
         [TestMethod]
-        public void TesttMethod()
+        public void PlusOperatorOverload_TwoLists_SecondListIslongerisTrue()
         {
             //Arrange
             CustomList<int> firstList = new CustomList<int>();
@@ -58,7 +58,7 @@ namespace CustomListTests
         }
 
         [TestMethod]
-        public void TestMegthod()
+        public void PlusOperatorOverload_EmptyList_ResultIsUnchanged()
         {
             //Arrange
             CustomList<int> firstList = new CustomList<int>();

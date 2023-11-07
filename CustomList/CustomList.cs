@@ -131,7 +131,28 @@ namespace CustomList
         public static CustomList<T> operator -(CustomList<T> firstList, CustomList<T> secondList)
         {
             //returns a single CustomList<T> with all items from firstList, EXCEPT any items that also appear in secondList
-            return null;
+            CustomList<T> totalItems = new CustomList<T>();
+
+            for (int i = 0; i < firstList.count; i++)
+            {
+                T currentItem = firstList[i];
+                bool inSecondList = false;
+
+                for (int j = 0; j < secondList.count; j++)
+                {
+                    if (EqualityComparer<T>.Default.Equals(currentItem, secondList[j]))
+                    {
+                        secondList.Remove(secondList[j]);
+                        inSecondList = true;
+                        break;
+                    }
+                }
+                if (!inSecondList)
+                {
+                    totalItems.Add(currentItem);
+                }
+            }
+            return totalItems;
         }
 
 
