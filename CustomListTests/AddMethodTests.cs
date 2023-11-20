@@ -54,13 +54,13 @@ namespace CustomListTests
             //Arrange
             CustomList<string> myList = new CustomList<string>();
             //Act
-            int initialCapacity = myList.capacity;
+            int initialCapacity = myList.Capacity;
 
-            while (initialCapacity == myList.capacity)
+            while (initialCapacity == myList.Capacity)
             {
                 myList.Add("Item");
             }
-            int newCapacity = myList.capacity;
+            int newCapacity = myList.Capacity;
             //Assert 
             Assert.AreEqual(4, initialCapacity);
             Assert.AreEqual(8, newCapacity);
@@ -75,10 +75,10 @@ namespace CustomListTests
             CustomList<string> myList = new CustomList<string>();
 
             //Act
-            int initialCapacity = myList.capacity;
+            int initialCapacity = myList.Capacity;
             int itemIndex = -1; 
 
-            while (initialCapacity == myList.capacity)
+            while (initialCapacity == myList.Capacity)
             {
                 myList.Add("Item");
 
@@ -87,7 +87,7 @@ namespace CustomListTests
                     itemIndex = 0;
                 }
             }
-            int newCapacity = myList.capacity;
+            int newCapacity = myList.Capacity;
 
 
             //Assert 

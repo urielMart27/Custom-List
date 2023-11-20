@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -12,10 +13,17 @@ namespace CustomList
     {
         //Member Variables (HAS A)
         private T[] items;
-        public int capacity;
-        public int count;
+        private int capacity;
+        private int count;
+        public int Count
+        {
+            get { return count; }
+        }
+        public int Capacity
+        {
+            get { return capacity; }
+        }
 
-      
 
         //Constructor
         public CustomList()
@@ -26,10 +34,48 @@ namespace CustomList
             count = 0;
             //items = 
             items = new T[capacity];
-            
         }
 
+      
+
+        public T this[int index]
+        {
+            get
+            {
+                if (index < 0 || index >= count)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                else
+                {
+                    return items[index];
+                }
+            }
+            set
+            {
+                if (index < 0 || index >= count)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                else
+                {
+                    items[index] = value;
+                }
+            }
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return items[i];
+            }
+        }
+
+
+
         //Member Methods (CAN DO)
+
         public void Add(T item)
         {
             //'item' parameter should be added to internal 'items' array
@@ -48,12 +94,8 @@ namespace CustomList
             }
             items[count] = item;
             count++;
-
-            
         }
       
-        
-            
 
         public bool Remove(T item)
         {
@@ -66,36 +108,21 @@ namespace CustomList
             {
                 return false;
             }
-
             for (int i = index; i < count - 1; i++)
             {
                 items[i] = items[i + 1];
             }
-
             count--;
             return true;
-            
-
         }
 
-           public int Count
-        {
-            get { return count; }
-        }
-
-        public T this[int index]
-        {
-            get { return items[index]; }
-        }
-      
-
+    
         public override string ToString()
         {
             //returns a single string that contains all items from array
             if (count == 0)
             {
                 return " ";
-
             }
 
             StringBuilder result = new StringBuilder();
@@ -122,10 +149,6 @@ namespace CustomList
                 totalItems.Add(secondList[i]);
             }
             return totalItems;
-           
-
-
-          
         }
 
         public static CustomList<T> operator -(CustomList<T> firstList, CustomList<T> secondList)
