@@ -1,0 +1,47 @@
+﻿Syntax:  
+-------------------------------------------------------------------------------------------
+public static CustomList<T> operator -(CustomList,T> firstlist, CustomList<T> secondList)
+---------------------------------------------------------------------------------------------
+Parameter: 
+
+firstList: This is a list which the items from the secondList will be subtracted from 
+secondList: the items that will be subtracted from the first list. 
+
+Return Type: 
+Returns a new list of items from the first list that do not appear on the secondList. 
+  
+
+Description: 
+The – Operator Overload subtracts the items that appear again on the secondList from the firstList so that there is only one instance of that item. This means that if the secondList has a number from the firstList, that number from the firstList will not appear. 
+
+
+--------------------------------------------------------------------------------------------------
+[TestMethod]
+
+public void MinusOperatorOverload_TwoLists_SubtractSingleInstanceOfThingInSecondList()
+
+{
+	//Arrange
+	CustomList<int> firstList = new CustomList<int>();
+	CustomList<int> secondList = new CustomList<int>();
+
+	firstList.Add(3)
+	firstList.Add(3)
+	firstList.Add(3)
+
+	secondList.Add(3)
+
+	//Act
+	CustomList<int> totalItems = firstList - secondList;
+
+	//Assert
+	Assert.AreEqual(2, totalItems.Count);
+	Assert.AreEqual(3, totalItems[0]);
+	Assert.AreEqual(3, totalItems[1]);
+--------------------------------------------------------------------------------------------------
+  
+ 
+This TestMethod is checking to see if the int from the secondList is being subtracted from the firstList. In this case 3 is the int in the secondList, which means that it will remove an instance of 3 from the firstList. 
+The output of this list will be: 
+3 
+3
